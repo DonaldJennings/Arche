@@ -12,25 +12,32 @@ namespace Arche
 		}
 	}
 
-	void EventManager::addListener(std::shared_ptr<IEventListener> listener)
+	void EventManager::addListener(EventType type, std::shared_ptr<IEventListener> listener)
 	{
-		m_listeners.push_back(listener);
+		// If the event type does not exist in the map, add it
+		if (m_listeners.find(type) == m_listeners.end())
+		{
+			m_listeners[type] = { listener };
+		} 
+		m_listeners.find(type)->second.push_back(listener);
+
+		ARCHE_TRACE("Listener added");
 	}
 
-	void EventManager::removeListener(std::shared_ptr<IEventListener> listener)
+	void EventManager::removeListener(EventType type, std::shared_ptr<IEventListener> listener)
 	{
-		auto it = std::find(m_listeners.begin(), m_listeners.end(), listener);
-		if (it != m_listeners.end())
-		{
-			m_listeners.erase(it);
-		}
+		return;
 	}
 
-	void EventManager::triggerEvent()
+	void EventManager::triggerEvent(Event event)
 	{
-		for (auto& listener : m_listeners)
+		auto listeners = m_listeners.find(event.getType());
+		if (listeners != m_listeners.end())
 		{
-			listener->onEvent();
+			for (auto listener : listeners->second)
+			{
+				listener->onEvent();
+			}
 		}
 	}
 

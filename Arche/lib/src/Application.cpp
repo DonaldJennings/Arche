@@ -12,14 +12,14 @@ namespace Arche
 		EventManager::init();
 
 		// Add the application as a listener
-		EventManager::getEventManager()->addListener(std::shared_ptr<IEventListener>(this));
+		EventManager::getEventManager()->addListener(EventType::KeyPressed ,std::shared_ptr<IEventListener>(this));
 		ARCHE_INFO("Application is running");
 
 
 		// Emit an event asynchonously every 2 seconds
 		do
 		{
-			EventManager::getEventManager()->triggerEvent();
+			EventManager::getEventManager()->triggerEvent(Event(EventType::KeyPressed, EventCategoryInput));
 			std::this_thread::sleep_for(std::chrono::seconds(2));
 		}
 
