@@ -8,7 +8,7 @@
 
 namespace Arche
 {
-    class LIB_API Logger
+    class ARCHE_API Logger
     {
     public:
         static void init();

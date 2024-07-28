@@ -9,7 +9,7 @@
 
 namespace Arche
 {
-	class LIB_API Application : public IEventListener
+	class ARCHE_API Application : public IEventListener
 	{
 	public:
 		Application()
