@@ -1,0 +1,3 @@
+[submodule "Arche/spdlog"]
+	path = Arche/spdlog
+	url = https://github.com/gabime/spdlog.git
