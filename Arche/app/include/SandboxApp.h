@@ -1,6 +1,5 @@
 
 #include "Application.h"
-#include "EntryPoint.h"
 
 #ifndef SANDOX_APPLICATION
 #define SANDBOX_APPLICATION

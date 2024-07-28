@@ -10,5 +10,8 @@ project(Arche VERSION 1.0.0)
 # Add subdirectory for the library
 add_subdirectory(lib)
 
+# Add subdirectory for spdlog
+add_subdirectory(spdlog)
+
 # Add subdirectory for the application
 add_subdirectory(app)

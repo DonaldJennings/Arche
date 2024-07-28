@@ -7,6 +7,8 @@ file(GLOB_RECURSE SOURCES "src/*.cpp" "include/*.h")
 # Create Dynamic Library
 add_library(Arche SHARED ${SOURCES})
 
+target_link_libraries(Arche PRIVATE spdlog::spdlog)
+
 # Export the include directory
 target_include_directories(Arche PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 

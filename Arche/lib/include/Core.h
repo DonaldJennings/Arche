@@ -13,3 +13,10 @@
 #endif
 
 #endif // !ARCHE_CORE
+
+
+// Define logging macros with ARCHE_ prefix
+#define ARCHE_TRACE(...)    ::Arche::Logger::getLogger()->trace(__VA_ARGS__)
+#define ARCHE_INFO(...)     ::Arche::Logger::getLogger()->info(__VA_ARGS__)
+#define ARCHE_WARN(...)     ::Arche::Logger::getLogger()->warn(__VA_ARGS__)
+#define ARCHE_ERROR(...)    ::Arche::Logger::getLogger()->error(__VA_ARGS__)
