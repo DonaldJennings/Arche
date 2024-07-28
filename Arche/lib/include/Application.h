@@ -1,13 +1,15 @@
 
 #include <Core.h>
 #include <memory>
+#include <IEventListener.h>
+#include <Logger.h>
 
 #ifndef ARCHE_APPLICATION
 #define ARCHE_APPLICATION
 
 namespace Arche
 {
-	class LIB_API Application
+	class LIB_API Application : public IEventListener
 	{
 	public:
 		Application()
@@ -21,6 +23,11 @@ namespace Arche
 		}
 
 		void run();
+
+		void onEvent() override
+		{
+			ARCHE_WARN("Event has been triggered");
+		}
 	};
 }
 
